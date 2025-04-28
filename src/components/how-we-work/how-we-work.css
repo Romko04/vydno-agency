@@ -1,0 +1,75 @@
+.how-we-work {
+  padding: 80px 0;
+  background-color: #fff;
+}
+
+.how-we-work__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.how-we-work__title {
+  font-size: 48px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 60px;
+  color: #333;
+}
+
+.how-we-work__steps {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+}
+
+.step {
+  text-align: center;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+}
+
+.step__number {
+  font-size: 24px;
+  font-weight: 700;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.step__title {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.4;
+}
+
+@media (max-width: 1024px) {
+  .how-we-work__steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .how-we-work__steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .how-we-work__title {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .how-we-work__steps {
+    grid-template-columns: 1fr;
+  }
+
+  .how-we-work__title {
+    font-size: 28px;
+  }
+}
