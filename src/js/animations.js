@@ -5,18 +5,18 @@ import Lenis from "lenis";
 import { initPreloader } from "./preloader";
 gsap.registerPlugin(ScrollTrigger);
 
+export const lenis = new Lenis({
+  duration: 1.7,
+  smooth: true,
+  direction: "vertical",
+  gestureDirection: "vertical",
+  smoothTouch: false,
+  touchMultiplier: 2,
+  wheelMultiplier: 1,
+  infinite: false,
+});
+
 export function initAnimations() {
-  // Lenis smooth scroll
-  const lenis = new Lenis({
-    duration: 1.5,
-    smooth: true,
-    direction: "vertical",
-    gestureDirection: "vertical",
-    smoothTouch: false,
-    touchMultiplier: 2,
-    wheelMultiplier: 1,
-    infinite: false,
-  });
   function raf(time) {
     lenis.raf(time);
     requestAnimationFrame(raf);
@@ -47,13 +47,14 @@ export function initAnimations() {
     gsap.to(".faq__title", {
       y: 0,
       opacity: 1,
-      duration: 1.2,
+      duration: 1.5,
       ease: "power3.out",
       scrollTrigger: {
         trigger: ".faq",
-        start: "top 45%",
-        end: "top 10%",
+        start: "top 60%",
+        end: "top 5%",
         scrub: true,
+        once: true,
       },
     });
   }
@@ -105,6 +106,7 @@ export function initAnimations() {
           start: "top 50%",
           end: "top 10%",
           scrub: true,
+          once: true,
         },
       });
     });

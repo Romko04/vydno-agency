@@ -1,5 +1,4 @@
 export function initPreloader() {
-  debugger;
   const preloader = document.querySelector(".preloader");
   const percentText = document.querySelector(".preloader__percent");
   const logo = document.querySelector(".preloader__logo");
@@ -21,7 +20,6 @@ export function initPreloader() {
 
   // Ефект насиченості лого
   function setProgress(percent) {
-    console.log("setProgress", percent);
     percentText.textContent = `${Math.round(percent)}%`;
     // Лого стає яскравішим по мірі завантаження
     const minOpacity = 0.2;

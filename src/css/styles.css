@@ -2,7 +2,38 @@
 :root {
   --font-family: "helveticaneuecyr", sans-serif;
   --second-family: "Benzin", sans-serif;
+  /* Custom scrollbar colors */
+  --scrollbar-thumb: #44d7b3;
+  --scrollbar-track: #181717;
+  --scrollbar-thumb-hover: #2a8a6f;
 }
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 14px;
+  background: var(--scrollbar-track);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--scrollbar-thumb), var(--scrollbar-thumb-hover));
+  border-radius: 8px;
+  border: 3px solid var(--scrollbar-track);
+  min-height: 40px;
+  transition: background 0.3s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--scrollbar-thumb-hover), var(--scrollbar-thumb));
+}
+::-webkit-scrollbar-corner {
+  background: var(--scrollbar-track);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
 ul,
 ol {
   list-style: none;
@@ -1286,7 +1317,7 @@ img {
   background-color: rgba(0, 0, 0, 0.8);
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
   z-index: 100;
 }
 
@@ -1304,11 +1335,17 @@ img {
 }
 
 .popup__content {
+  transition: all 0.5s ease;
+  transform: translateY(-100%);
   background-color: #181717;
   border-radius: 2.5rem;
   padding: 2rem;
   position: relative;
   max-width: 100%;
+}
+
+.popup.active .popup__content {
+  transform: translateY(0);
 }
 
 .popup__close {

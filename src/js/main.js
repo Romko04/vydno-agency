@@ -4,8 +4,8 @@ import { Navigation } from "swiper/modules";
 import "../components/header/header.js";
 import "swiper/css";
 import "swiper/css/navigation";
-import Lenis from "lenis";
 import { initAnimations } from "./animations";
+import { lenis } from "./animations";
 
 const reviewsSlider = new Swiper(".reviews-slider", {
   modules: [Navigation],
@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     body.style.paddingRight = lockPaddingValue;
     body.classList.add("body--lock");
     unlock = false;
+    lenis.stop();
     setTimeout(() => {
       unlock = true;
     }, timeout);
@@ -45,6 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       body.style.paddingRight = "0px";
       body.classList.remove("body--lock");
+      document.documentElement.style.overflow = "";
+      lenis.start();
     }, timeout);
     unlock = false;
     setTimeout(() => {
@@ -102,6 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
           video.currentTime = 0;
         }
         popup.classList.remove("active");
+
         bodyUnlock();
       }
     });
@@ -130,23 +134,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-
-  // Lenis smooth scroll
-  const lenis = new Lenis({
-    duration: 1.2,
-    smooth: true,
-    direction: "vertical",
-    gestureDirection: "vertical",
-    smoothTouch: false,
-    touchMultiplier: 2,
-    wheelMultiplier: 1,
-    infinite: false,
-  });
-  function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-  requestAnimationFrame(raf);
 
   // --------------- Анімації -----------------
   initAnimations();
