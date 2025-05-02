@@ -4,7 +4,7 @@ import { Navigation } from "swiper/modules";
 import "../components/header/header.js";
 import "swiper/css";
 import "swiper/css/navigation";
-import { initAnimations } from "./animations";
+import { initAnimations, initPortfolioAccordion } from "./animations";
 import { lenis } from "./animations";
 
 const reviewsSlider = new Swiper(".reviews-slider", {
@@ -135,6 +135,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Плавний скрол до секцій через Lenis
+  document.querySelectorAll(".header__link").forEach((link) => {
+    link.addEventListener("click", function (e) {
+      const href = link.getAttribute("href");
+      if (href && href.startsWith("#")) {
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          lenis.scrollTo(target); // offset якщо треба під хедер
+        }
+      }
+    });
+  });
+
   // --------------- Анімації -----------------
   initAnimations();
+  initPortfolioAccordion();
 });

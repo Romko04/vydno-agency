@@ -233,3 +233,21 @@ export function initAnimations() {
 
   initPreloader();
 }
+
+export function initPortfolioAccordion() {
+  const cases = document.querySelectorAll(".portfolio__cases .case");
+  cases.forEach((el, i) => {
+    gsap.to(el, {
+      scrollTrigger: {
+        trigger: el,
+        start: () => `top 100%`,
+        end: () => `+=${el.offsetHeight}`,
+        scrub: true,
+        onUpdate: (self) => {
+          el.style.zIndex = 10 + i + Math.round(self.progress * 10);
+        },
+      },
+      ease: "none",
+    });
+  });
+}

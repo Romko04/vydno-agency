@@ -82,7 +82,6 @@ body {
 }
 .main {
   flex: 1 1 auto;
-  padding-top: 7.6rem;
 }
 ol,
 ul {
@@ -132,7 +131,8 @@ img {
 
 /* Hero section */
 .hero {
-  padding: 16.3rem 0 0;
+  padding: 8.15rem 0;
+  margin-top: 6.15rem;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -1417,4 +1417,63 @@ img {
   text-transform: uppercase;
   text-align: center;
   color: #44d7b3;
+}
+
+/* Portfolio Accordion Styles */
+.portfolio {
+  padding: 8rem 0;
+  background: #000;
+}
+.portfolio__title {
+  font-family: var(--second-family);
+  font-size: 3.4rem;
+  line-height: 1.38;
+  text-transform: uppercase;
+  color: #fcfcfc;
+  margin-bottom: 6rem;
+  text-align: center;
+}
+.portfolio__cases {
+  position: relative;
+  max-width: 60rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  min-height: 60rem;
+}
+.case {
+  position: sticky;
+  top: 5rem;
+  left: 0;
+  width: 100%;
+  height: 20rem;
+  background: #181717;
+  border-radius: 2.5rem;
+  margin-bottom: 5rem;
+  box-shadow: 0 4px 32px rgba(68, 215, 179, 0.08);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family);
+  font-size: 2.4rem;
+  color: #44d7b3;
+  font-weight: 700;
+  transition: box-shadow 0.3s, transform 0.3s, z-index 0.3s;
+  border: 2px solid #44d7b3;
+  overflow: hidden;
+}
+.case:not(:first-child) {
+  box-shadow: 0 8px 32px rgba(68, 215, 179, 0.16);
+}
+@media (max-width: 991.98px) {
+  .portfolio__cases {
+    max-width: 100%;
+    min-height: 40rem;
+  }
+  .case {
+    height: 8rem;
+    font-size: 1.6rem;
+  }
 }
