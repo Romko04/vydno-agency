@@ -1,45 +1,29 @@
 import "./header.css";
 document.addEventListener("DOMContentLoaded", () => {
-  // Add smooth scrolling to navigation links
-  const navLinks = document.querySelectorAll(".nav-link");
+  function toggleMenu() {
+    document.querySelector(".header__burger").classList.toggle("active");
+    document.querySelector("header .menu__body").classList.toggle("active");
+    document.body.classList.toggle("body--lock");
+  }
 
-  navLinks.forEach((link) => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      const targetId = link.getAttribute("href");
-      const targetElement = document.querySelector(targetId);
-
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: "smooth",
-        });
-      }
-    });
+  // Тогл меню по кліку на бургер
+  document.querySelector(".header__burger").addEventListener("click", function () {
+    document.querySelector(".header__burger").classList.toggle("active");
+    document.querySelector(".menu__body").classList.toggle("active");
+    document.body.classList.toggle("body--lock");
   });
 
-  // Add active class to current section in view
-  const observerOptions = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.5,
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute("id");
-        navLinks.forEach((link) => {
-          link.classList.remove("active");
-          if (link.getAttribute("href") === `#${id}`) {
-            link.classList.add("active");
-          }
-        });
+  // Плавний скрол до секцій через Lenis
+  document.querySelectorAll(".header__link").forEach((link) => {
+    link.addEventListener("click", function (e) {
+      const href = link.getAttribute("href");
+      if (href && href.startsWith("#")) {
+        const target = document.querySelector(href);
+        if (target && window.lenis) {
+          e.preventDefault();
+          window.lenis.scrollTo(target);
+        }
       }
     });
-  }, observerOptions);
-
-  // Observe all sections
-  document.querySelectorAll("section").forEach((section) => {
-    observer.observe(section);
   });
 });
