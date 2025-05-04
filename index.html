@@ -7,7 +7,7 @@
   </head>
 
   <body>
-    <div id="preloader" class="preloader">
+    <!-- <div id="preloader" class="preloader">
       <div class="preloader__content">
         <svg
           class="preloader__logo"
@@ -74,12 +74,12 @@
         </svg>
         <div class="preloader__percent"></div>
       </div>
-    </div>
+    </div> -->
     <div class="wrapper">
       <load src="./src/components/header/index.html" />
       <main class="main">
         <section class="hero">
-          <div class="hero__container">
+          <div class="container hero__container">
             <h1 class="hero__title">Зробимо ваш бізнес <strong>видимим в Інтернеті</strong></h1>
             <p class="hero__subtitle">Сайти, що продають. SEO, що приносить трафік. Результати, за які не соромно.</p>
             <button class="hero__button">Зв'язатись</button>
@@ -90,23 +90,7 @@
             </video>
           </div>
         </section>
-        <section class="portfolio" id="portfolio">
-          <div class="container portfolio__container">
-            <div class="title__wrapper">
-              <h2 class="portfolio__title">Портфоліо</h2>
-            </div>
-            <div class="portfolio__cases">
-              <div class="case">Case 1: Корпоративний сайт</div>
-              <div class="case">Case 2: Інтернет-магазин</div>
-              <div class="case">Case 3: Лендінг</div>
-              <div class="case">Case 4: SEO-просування</div>
-              <div class="case">Case 5: Техпідтримка</div>
-              <div class="case">Case 6: Digital-стратегія</div>
-            </div>
-          </div>
-        </section>
         <load src="./src/components/contact.html" />
-
         <section class="services">
           <div class="services__intro">
             <div
@@ -114,12 +98,20 @@
             >
               <div class="container intro__container">
                 <h2 class="services__title">Чим ми можемо бути корисні вам?</h2>
-                <div class="services__description">
+                <div class="services__description services__description--desktop">
                   <p class="services__text">
                     <img class="services__logo" src="./src/images/logo.svg" alt="VYDNO.AGENCY Logo" />- це команда, яка
                     бачить бізнес очима власника. І працює на результат.
                   </p>
                 </div>
+              </div>
+            </div>
+            <div class="container">
+              <div class="services__description services__description--mobile">
+                <p class="services__text">
+                  <img class="services__logo" src="./src/images/logo.svg" alt="VYDNO.AGENCY Logo" />- це команда, яка
+                  бачить бізнес очима власника. І працює на результат.
+                </p>
               </div>
             </div>
           </div>
@@ -142,7 +134,6 @@
             </div>
           </div>
         </section>
-
         <section class="our-services" id="services">
           <div class="our-services__container">
             <div class="title__wrapper">

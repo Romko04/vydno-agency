@@ -12,7 +12,7 @@ export default defineConfig({
   base: "./",
   server: {
     open: true,
-    port: 3000,
+    port: 3001,
     hot: true,
   },
   build: {
