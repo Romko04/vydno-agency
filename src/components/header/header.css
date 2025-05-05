@@ -129,8 +129,7 @@
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #181717;
-    top: 0;
+    background: linear-gradient(180deg, #181717 0%, #232b27 100%);
     bottom: 0;
     z-index: -1;
     transition: left ease 0.3s;
@@ -160,15 +159,42 @@
 
   .header__menu-items {
     flex-wrap: wrap;
+    padding: 0 5rem;
     justify-content: flex-start;
     align-items: flex-start;
   }
 
   .header__link {
     font-size: 2.6rem;
+    font-family: var(--second-family);
   }
 
   .header__logo-image {
     height: 2.2rem;
   }
+  .header {
+    top: 3rem;
+  }
+}
+
+.header__tg-btn {
+  display: block;
+  margin: 2.5rem auto 0 auto;
+  padding: 1.3rem 3.2rem;
+  background: linear-gradient(90deg, #44d7b3 0%, #2a8a6f 100%);
+  color: #fff;
+  font-family: var(--font-family);
+  font-size: 2.2rem;
+  font-weight: 400;
+  border: none;
+  border-radius: 3.2rem;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 2px 16px rgba(68, 215, 179, 0.12);
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+.header__tg-btn:hover {
+  background: linear-gradient(90deg, #2a8a6f 0%, #44d7b3 100%);
+  color: #fff;
+  box-shadow: 0 4px 24px rgba(68, 215, 179, 0.22);
 }

@@ -7,24 +7,23 @@ import "swiper/css/navigation";
 import { initAnimations, initPortfolioAccordion } from "./animations";
 import { lenis } from "./animations";
 
-const reviewsSlider = new Swiper(".reviews-slider", {
-  modules: [Navigation],
-  slidesPerView: 1,
-  spaceBetween: 33,
-  loop: true,
-  navigation: {
-    nextEl: ".reviews__control--next",
-    prevEl: ".reviews__control--prev",
-  },
-  breakpoints: {
-    1024: {
-      slidesPerView: 2,
-    },
-  },
-});
-
 // Управління попапами
 document.addEventListener("DOMContentLoaded", () => {
+  const reviewsSlider = new Swiper(".reviews-slider", {
+    modules: [Navigation],
+    slidesPerView: 1,
+    spaceBetween: 33,
+    loop: true,
+    navigation: {
+      nextEl: ".reviews__control--next",
+      prevEl: ".reviews__control--prev",
+    },
+    breakpoints: {
+      1024: {
+        slidesPerView: 2,
+      },
+    },
+  });
   const body = document.querySelector("body");
   let unlock = true;
   const timeout = 500;
@@ -126,10 +125,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (panel) {
         if (panel.style.maxHeight) {
           panel.style.maxHeight = null;
-          panel.style.padding = "0";
+          panel.style.margin = "0";
         } else {
           panel.style.maxHeight = panel.scrollHeight + "px";
-          panel.style.padding = "2.4rem 0";
+          panel.style.margin = "2.4rem 0";
         }
       }
     });

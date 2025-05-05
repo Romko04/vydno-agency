@@ -17,117 +17,58 @@ export const lenis = new Lenis({
 });
 
 export function initAnimations() {
+  initPreloader();
+
   function raf(time) {
     lenis.raf(time);
     requestAnimationFrame(raf);
   }
   requestAnimationFrame(raf);
 
-  // OUR SERVICES TITLE
-  if (document.querySelector(".our-services__title")) {
-    const servicesSplit = new SplitType(".our-services__title", { types: "chars" });
-    gsap.set(servicesSplit.chars, { y: 100, opacity: 0 });
-    gsap.to(servicesSplit.chars, {
-      y: 0,
-      opacity: 1,
-      duration: 0.8,
-      stagger: 0.06,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: ".our-services",
-        start: "top 80%",
-        end: "top 20%",
-        scrub: true,
-        once: true,
-      },
-    });
-  }
-  if (document.querySelector(".faq__title")) {
-    gsap.set(".faq__title", { y: 100, opacity: 0 });
-    gsap.to(".faq__title", {
-      y: 0,
-      opacity: 1,
-      duration: 1.5,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: ".faq",
-        start: "top 60%",
-        end: "top 5%",
-        scrub: true,
-        once: true,
-      },
-    });
-  }
-  if (document.querySelector(".reviews__title")) {
-    gsap.set(".reviews__title", { y: 100, opacity: 0 });
-    gsap.to(".reviews__title", {
-      y: 0,
-      opacity: 1,
-      duration: 1.2,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: ".reviews",
-        start: "top 50%",
-        end: "top 10%",
-        scrub: true,
-        once: true,
-      },
-    });
-  }
-  // SERVICES__TITLE: виїзд зліва
-  if (document.querySelector(".services__title")) {
-    gsap.set(".services__title", { x: -100, opacity: 0 });
-    gsap.to(".services__title", {
-      x: 0,
-      opacity: 1,
-      duration: 1.5,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: ".services",
-        start: "top 40%",
-        end: "top 10%",
-        scrub: true,
-        once: true,
-      },
-    });
-  }
-  // CONTACT__TITLE: fade-in
-  if (document.querySelectorAll(".contact__title")) {
-    const contactTitles = document.querySelectorAll(".contact__title");
-    contactTitles.forEach((title) => {
-      gsap.set(title, { opacity: 0, y: 100 });
-      gsap.to(title, {
-        opacity: 1,
-        y: 0,
-        duration: 1.2,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: ".contact",
-          start: "top 50%",
-          end: "top 10%",
-          scrub: true,
-          once: true,
-        },
-      });
-    });
-  }
-  // STEP: розгортання
-  if (document.querySelector(".step")) {
-    gsap.set(".step", { scaleY: 0.7, y: 60, opacity: 0, transformOrigin: "top center" });
-    gsap.to(".step", {
-      scaleY: 1,
-      y: 0,
-      opacity: 1,
-      duration: 0.9,
-      stagger: 0.35,
-      ease: "back.out(1.7)",
-      scrollTrigger: {
-        trigger: ".how-we-work__steps",
-        start: "top 35%",
-        once: true,
-      },
-    });
-  }
+  // UNIVERSAL SECTION TITLE ANIMATION
+  const sectionTitles = document.querySelectorAll(".section-title");
+  sectionTitles.forEach((title) => {
+    // Split only if not already split
+    if (!title.classList.contains("split-initialized")) {
+      const split = new SplitType(title, { types: "chars" });
+      title.classList.add("split-initialized");
+      // Detect mobile
+      const isMobile = window.innerWidth <= 991.98;
+      if (isMobile) {
+        gsap.set(split.chars, { x: -100, opacity: 0 });
+        gsap.to(split.chars, {
+          x: 0,
+          opacity: 1,
+          duration: 0.4,
+          stagger: 0.02,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: title,
+            start: "top 80%",
+            end: "top 20%",
+            once: true,
+          },
+        });
+      } else {
+        gsap.set(split.chars, { y: 100, opacity: 0 });
+        gsap.to(split.chars, {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.06,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: title,
+            start: "top 80%",
+            end: "top 20%",
+            scrub: true,
+            once: true,
+          },
+        });
+      }
+    }
+  });
+
   // HERO SUBTITLE SCRUB WORDS
   if (document.querySelector(".hero__subtitle")) {
     const subtitle = document.querySelector(".hero__subtitle");
@@ -161,7 +102,7 @@ export function initAnimations() {
       .timeline({
         scrollTrigger: {
           trigger: servicesText,
-          start: "top 70%",
+          start: "top 80%",
           end: "top 5%",
           scrub: true,
           once: true,
@@ -171,6 +112,30 @@ export function initAnimations() {
         opacity: 1,
         y: 0,
         scale: 1,
+        duration: 1.2,
+        ease: "back.out(1.7)",
+        stagger: { each: 0.18 },
+      });
+  }
+
+  if (document.querySelector(".services__title")) {
+    const servicesTitle = document.querySelector(".services__title");
+    servicesTitle.setAttribute("scrub-each-word", "");
+    const servicesTitleSplit = new SplitType(servicesTitle, { types: "words" });
+    gsap.set(servicesTitleSplit.words, { opacity: 0, left: 100 });
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: servicesTitle,
+          start: "top 80%",
+          end: "top 5%",
+          scrub: true,
+          once: true,
+        },
+      })
+      .to(servicesTitleSplit.words, {
+        opacity: 1,
+        left: 0,
         duration: 1.2,
         ease: "back.out(1.7)",
         stagger: { each: 0.18 },
@@ -214,24 +179,26 @@ export function initAnimations() {
     },
   });
 
-  if (document.querySelector(".how-we-work__title")) {
-    gsap.set(".how-we-work__title", { y: 100, opacity: 0 });
-    gsap.to(".how-we-work__title", {
+  // Анімація для .services__questions
+  if (document.querySelector(".services__questions")) {
+    const questions = document.querySelectorAll(".services__question");
+    const isMobile = window.innerWidth <= 991.98;
+    gsap.set(questions, { y: 80, opacity: 0, scale: 0.97 });
+    gsap.to(questions, {
       y: 0,
       opacity: 1,
-      duration: 1.2,
-      ease: "power3.out",
+      scale: 1,
+      duration: 0.7,
+      ease: "back.out(1.7)",
+      stagger: 0.15,
       scrollTrigger: {
-        trigger: ".how-we-work",
+        trigger: ".services__questions",
         start: "top 60%",
         end: "top 10%",
-        scrub: true,
-        once: true,
+        ...(isMobile ? { once: true } : { scrub: true, once: true }),
       },
     });
   }
-
-  initPreloader();
 }
 
 export function initPortfolioAccordion() {

@@ -160,6 +160,7 @@ img {
   text-align: center;
   color: #fcfcfc;
   max-width: 60rem;
+  text-transform: uppercase;
 }
 
 .hero__subtitle strong {
@@ -175,6 +176,7 @@ img {
   cursor: pointer;
   font-family: var(--font-family);
   font-size: 2.8rem;
+  font-weight: 400;
   line-height: 1.21;
   text-transform: capitalize;
   color: #ffffff;
@@ -796,6 +798,7 @@ img {
 }
 
 .footer {
+  margin: 5rem 0;
   background-color: #000;
   color: #fff;
 }
@@ -1049,7 +1052,8 @@ img {
   padding: 0.6rem 1.2rem;
   font-family: var(--font-family);
   font-size: 0.9rem;
-  font-weight: 900;
+  font-weight: 400;
+  letter-spacing: 0.04em;
   line-height: 0.96;
   text-transform: uppercase;
   color: #ffffff;
@@ -1382,19 +1386,20 @@ section {
     margin-bottom: 4rem;
   }
   .title__wrapper--texture {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
   .title__wrapper--texture::after {
     background-image: url("../images/title-texture-mobile.png");
-    filter: blur(0.1rem);
+    filter: blur(0.2rem);
   }
   .main {
     padding-top: 7.2rem;
   }
   .hero {
-    margin-top: 0;
-    padding: 11rem 0;
+    margin-top: 6rem;
+    padding: 8rem 0;
+    margin-bottom: 2rem;
   }
   .services__intro {
     flex-direction: column;
@@ -1453,7 +1458,6 @@ section {
   .how-we-work__title {
     text-align: center;
     font-size: 2rem;
-    max-width: 19rem;
   }
   .how-we-work__steps {
     gap: 3rem;
@@ -1547,8 +1551,8 @@ section {
     padding: 6rem 0 0;
   }
 
-  .reviews__title {
-    font-size: 2.8rem;
+  .section-title {
+    font-size: 2rem;
   }
 
   .reviews__subtitle {
@@ -1687,6 +1691,21 @@ section {
   .reviews__control svg {
     width: 1.2rem;
     height: 1.2rem;
+  }
+
+  .review-card__action {
+    font-size: 1.3rem;
+  }
+  .review-card__action-icon {
+    width: 3rem;
+    height: 3rem;
+    bottom: -2rem;
+  }
+  .review-card__name {
+    font-size: 1.7rem;
+  }
+  .footer {
+    margin: 0;
   }
 }
 
