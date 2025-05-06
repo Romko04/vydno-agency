@@ -21,6 +21,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: "index.html",
+        portfolio: "portfolio.html",
       },
       output: {
         entryFileNames: "js/[name].js",

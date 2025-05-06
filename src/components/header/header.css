@@ -73,6 +73,12 @@
     border-radius: 50%;
     position: relative;
     z-index: 26;
+    aspect-ratio: 1/1;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .header__burger {
     display: block;

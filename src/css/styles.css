@@ -269,6 +269,16 @@ img {
   z-index: 2;
 }
 
+.section-title {
+  font-family: var(--second-family);
+  font-size: 3.4rem;
+  line-height: 1.38;
+  text-transform: uppercase;
+  color: #fcfcfc;
+  position: relative;
+  z-index: 2;
+}
+
 .contact__subtitle {
   font-family: var(--font-family);
   font-size: 3.3rem;
@@ -490,8 +500,6 @@ img {
 }
 
 /* Our Services section */
-.our-services {
-}
 
 .our-services__title {
   font-family: var(--second-family);
@@ -1217,7 +1225,10 @@ img {
   padding: 0;
 }
 .case {
-  background: #1e1e1e;
+  background-image: url("../images/portfolio-bg-1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   position: sticky;
   top: 15rem;
   left: 0;
@@ -1355,7 +1366,169 @@ section {
   padding-top: 8.15rem;
 }
 
+.section {
+  padding: 8rem 0;
+}
+
+/* === Prices Block === */
+
+.prices__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5.5rem;
+  justify-content: center;
+  align-items: stretch;
+  margin: 0 auto;
+}
+.prices__card {
+  position: relative;
+  background: #181717;
+  border-radius: 2.2rem;
+  border: 0.1rem solid #fff;
+  overflow: hidden;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.prices__card:hover {
+  transform: translateY(-0.8rem) scale(1.03);
+  box-shadow: 0 1.6rem 4rem rgba(68, 215, 179, 0.18);
+}
+.prices__img-wrap {
+  position: absolute;
+  width: 13rem;
+  height: auto;
+  right: 0;
+  bottom: 0;
+}
+.prices__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.prices__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0.18;
+  pointer-events: none;
+}
+.prices__img {
+  width: 8.5rem;
+  height: 8.5rem;
+  object-fit: contain;
+  z-index: 2;
+}
+.prices__content {
+  position: relative;
+  z-index: 3;
+  padding: 2.4rem 2rem 2.2rem 2rem;
+  text-align: left;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+}
+.prices__title {
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 2.1rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: #44d7b3;
+  margin-bottom: 4.5rem;
+}
+
+.prices__value {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 3.5rem;
+}
+.prices__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  padding: 0;
+  padding-left: 3rem;
+  margin: 0;
+}
+.prices__item {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: #fff;
+  position: relative;
+}
+.prices__item::before {
+  content: "";
+  background-image: url("../images/target.png");
+  position: absolute;
+  left: -3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.6rem;
+  height: 2.6rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.prices__desc {
+  font-family: "helveticaneuecyr", var(--font-family);
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 1.6rem;
+  font-weight: 400;
+}
+.prices__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-bottom: 1.6rem;
+}
+.prices__row {
+  display: flex;
+  flex-direction: column;
+  gap: 1.9rem;
+}
+
+.prices__label {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 2rem;
+  color: #fff;
+}
+.prices__label {
+  color: #44d7b3;
+  font-weight: 700;
+}
+.prices__price {
+  font-family: "Benzin", var(--second-family);
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #fff;
+  margin-top: 1.6rem;
+  letter-spacing: 0.01em;
+}
+
 @media (max-width: 991.98px) {
+  .section {
+    padding: 4rem 0;
+  }
   section {
     padding-top: 6rem;
   }
@@ -1398,8 +1571,8 @@ section {
   }
   .hero {
     margin-top: 6rem;
-    padding: 8rem 0;
-    margin-bottom: 2rem;
+    padding: 10rem 0;
+    margin-bottom: 6rem;
   }
   .services__intro {
     flex-direction: column;
@@ -1707,6 +1880,30 @@ section {
   .footer {
     margin: 0;
   }
+
+  .prices__container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .section-title--prices {
+    margin-bottom: 4rem;
+  }
+  .prices__title {
+    font-size: 1.8rem;
+  }
+
+  .prices__desc {
+    font-size: 1.6rem;
+  }
+
+  .prices__price {
+    font-size: 1.8rem;
+  }
+
+  .prices__value {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
 }
 
 @media (min-width: 991.98px) {
@@ -1715,12 +1912,28 @@ section {
   }
 }
 
-.section {
-  padding: 8rem 0;
+.portfolio__more-wrapper {
+  text-align: center;
+  margin-top: 3rem;
 }
-
-@media (max-width: 991.98px) {
-  .section {
-    padding: 4rem 0;
-  }
+.portfolio__more-btn {
+  display: inline-block;
+  padding: 1.2rem 3.4rem;
+  background: #44d7b3;
+  color: #fff;
+  border-radius: 4.5rem;
+  font-size: 2rem;
+  font-family: var(--font-family);
+  text-transform: uppercase;
+  font-weight: 400;
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+  border: none;
+  cursor: pointer;
+  margin: 0 auto;
+}
+.portfolio__more-btn:hover {
+  background: #2a8a6f;
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(68, 215, 179, 0.18);
+  text-decoration: none;
 }

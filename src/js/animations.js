@@ -16,6 +16,24 @@ export const lenis = new Lenis({
   infinite: false,
 });
 
+// STEP: розгортання
+if (document.querySelector(".step")) {
+  gsap.set(".step", { scaleY: 0.7, y: 60, opacity: 0, transformOrigin: "top center" });
+  gsap.to(".step", {
+    scaleY: 1,
+    y: 0,
+    opacity: 1,
+    duration: 0.9,
+    stagger: 0.35,
+    ease: "back.out(1.7)",
+    scrollTrigger: {
+      trigger: ".how-we-work__steps",
+      start: "top 35%",
+      once: true,
+    },
+  });
+}
+
 export function initAnimations() {
   initPreloader();
 
@@ -196,6 +214,26 @@ export function initAnimations() {
         start: "top 60%",
         end: "top 10%",
         ...(isMobile ? { once: true } : { scrub: true, once: true }),
+      },
+    });
+  }
+
+  // Анімація для .prices__card
+  if (document.querySelector(".prices__card")) {
+    const priceCards = document.querySelectorAll(".prices__card");
+    gsap.set(priceCards, { y: 80, opacity: 0, scale: 0.97 });
+    gsap.to(priceCards, {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      duration: 0.8,
+      ease: "back.out(1.7)",
+      stagger: 0.18,
+      scrollTrigger: {
+        trigger: ".prices",
+        start: "top 70%",
+        end: "top 30%",
+        once: true,
       },
     });
   }

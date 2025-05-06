@@ -1,4 +1,5 @@
 import "./header.css";
+import { lenis } from "../../js/animations";
 document.addEventListener("DOMContentLoaded", () => {
   function toggleMenu() {
     document.querySelector(".header__burger").classList.toggle("active");
@@ -19,9 +20,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const href = link.getAttribute("href");
       if (href && href.startsWith("#")) {
         const target = document.querySelector(href);
-        if (target && window.lenis) {
+        if (target && lenis) {
           e.preventDefault();
-          window.lenis.scrollTo(target);
+          if (window.innerWidth <= 991.98) {
+            toggleMenu();
+          }
+          lenis.scrollTo(target);
         }
       }
     });
