@@ -15,11 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Плавний скрол до секцій через Lenis
-  document.querySelectorAll(".header__link").forEach((link) => {
+  document.querySelectorAll(".header__menu-items a").forEach((link) => {
     link.addEventListener("click", function (e) {
       const href = link.getAttribute("href");
-      if (href && href.startsWith("#")) {
-        const target = document.querySelector(href);
+      const beforeHash = href.split("#")[1];
+      if (beforeHash) {
+        const target = document.querySelector(`#${beforeHash}`);
         if (target && lenis) {
           e.preventDefault();
           if (window.innerWidth <= 991.98) {

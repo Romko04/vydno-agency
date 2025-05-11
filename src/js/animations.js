@@ -113,9 +113,7 @@ export function initAnimations() {
   // SERVICES__TEXT SCRUB WORDS
   if (document.querySelector(".services__text")) {
     const servicesText = document.querySelector(".services__text");
-    servicesText.setAttribute("scrub-each-word", "");
-    const servicesTextSplit = new SplitType(servicesText, { types: "words" });
-    gsap.set(servicesTextSplit.words, { opacity: 0, y: 40, scale: 0.95 });
+    gsap.set(servicesText, { opacity: 0, y: 40, scale: 0.95 });
     gsap
       .timeline({
         scrollTrigger: {
@@ -126,7 +124,7 @@ export function initAnimations() {
           once: true,
         },
       })
-      .to(servicesTextSplit.words, {
+      .to(servicesText, {
         opacity: 1,
         y: 0,
         scale: 1,

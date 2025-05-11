@@ -21,7 +21,7 @@
   background: #181717;
   background-color: #181717 !important;
 }
-.header__menu-item {
+.header__menu-items li {
   list-style: none;
 }
 
@@ -48,7 +48,7 @@
   gap: 1.6rem;
 }
 
-.header__link {
+.header__menu-items a {
   color: #ffffff;
   font-family: "HelveticaNeueCyr", sans-serif;
   font-size: 2rem;
@@ -57,7 +57,7 @@
   transition: color 0.3s ease;
 }
 
-.header__link:hover {
+.header__menu-items a:hover {
   color: #44d7b3;
 }
 
